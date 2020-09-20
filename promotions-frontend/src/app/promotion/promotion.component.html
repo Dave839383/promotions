@@ -1,9 +1,9 @@
 <div class="container">
     <div style="width: 600px; margin: auto;">
-        <h2>Please Enter Details Below To Win</h2>
-        <hr/>
         <div class="submit-form">
             <div *ngIf="!submitted">
+                <h2>Please Enter Details Below To Win</h2>
+                <hr/>
                 <form #promotionForm="ngForm">
                     <div class="form-group">
                         <label for="code">Code</label>
@@ -88,7 +88,9 @@
                 </form>
             </div>
             <div *ngIf="submitted">
-                <h4>{{this.message}}</h4>
+                <h2>Results</h2>
+                <hr/>
+                <p>{{this.message}}</p>
                 <button class="btn btn-success" (click)="goBack()">Back</button>
             </div>
         </div>

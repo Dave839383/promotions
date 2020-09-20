@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 class PromotionLogSerializer(ModelSerializer):
     class Meta:
         model = PromotionLog
-        fields = '__all__'
+        fields = ['code', 'first_name', 'last_name', 'email', 'created', 'status']
 
     def create(self, data):
         if PromotionLog.CODE_CHOICES[random.randint(0,4)][0] == data['code']:

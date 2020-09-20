@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 
 class PromotionLogViewSet(ModelViewSet):
     serializer_class = PromotionLogSerializer
+    http_method_names = ['post']
 
     def get_queryset(self):
         return PromotionLog.objects.all()
