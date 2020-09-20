@@ -27,13 +27,13 @@ python manage.py runserver
 
 #### Angular Code
 Main Angular code is in promotions-frontend/src/app/promotion/
-A form is submitted to localhost:8000/promotions (django server) and a message is presented to the user based on whether they've won, lost, duplicate email.
+A form is submitted to localhost:8000/promotion/ (django server) and a message is presented to the user based on whether they've won, lost, duplicate email.
 The form has validation making sure all values are entered before a request can go to server.
 
 #### Python Code
 Main Python code is in promotions_backend/promotions/viewsets.py, promotions_backend/promotions/serializers.py and promotions_backend/promotions/models.py.
 A POST request from the frontend first hits perform_create.  There is a check here to see if an entry with the email has been created in the last 24 hours, and if it has been, no new entry is created.  Otherwise the serializer generates a random integer to see if the code wins out of the 5 available codes.  A won or lost status is saved for the entry based on this.  The viewset create function then returns a status integer where 1 = Won, 0 = Lost, -1 = duplicate.  These statuses are used to show the appropriate messages for the user in the frontend.
 
-Please Note: I've disabled GET requests to /promotions as a normal user on this site should only be allowed to POST.  In order to see the entries in the database you can add 'get' to http_method_names in PromotionLogViewSet and go to localhost:8000/promotions/.
+Please Note: I've disabled GET requests to /promotion/ as a normal user on this site should only be allowed to POST.  In order to see the entries in the database you can add 'get' to http_method_names in PromotionLogViewSet and go to localhost:8000/promotion/.
 
 
