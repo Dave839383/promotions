@@ -12,12 +12,12 @@ ng serve --open
 ### Run Rest Framework Server
 create a virtual environment
 ```
+cd promotions_backend
 python3 -m venv env
 source env/bin/activate
 ```
-install dependencies and run server
+install dependencies and run django server
 ```
-cd promotions_backend
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
