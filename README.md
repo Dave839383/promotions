@@ -11,10 +11,15 @@ source env/bin/activate
 
 ### Run Angular
 ```
+cd promotions-frontend
 ng serve --open
 ```
 
 ### Run Rest Framework Server
 ```
 pip install -r requirements.txt
+cd promotions_backend
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
 ```
