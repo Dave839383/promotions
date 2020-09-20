@@ -1,6 +1,6 @@
 # Clothing Promotion Competition
-Consists of an Angular frontend (promotion-frontend folder) that sends requests to a
-Python backend written in Django Rest Framework (promotion-backend folder).
+Consists of an Angular frontend (promotions-frontend folder) that sends requests to a
+Python backend written in Django Rest Framework (promotions-backend folder).
 
 ### Run Angular
 ```
