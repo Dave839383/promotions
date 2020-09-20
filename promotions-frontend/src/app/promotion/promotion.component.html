@@ -1,0 +1,96 @@
+<div class="container">
+    <div style="width: 600px; margin: auto;">
+        <h2>Please Enter Details Below To Win</h2>
+        <hr/>
+        <div class="submit-form">
+            <div *ngIf="!submitted">
+                <form #promotionForm="ngForm">
+                    <div class="form-group">
+                        <label for="code">Code</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="code"
+                            required
+                            [(ngModel)]="promotion.code"
+                            name="code"
+                            #code="ngModel"
+                        />
+                    </div>
+                    <div [hidden]="code.valid || code.pristine"
+                        class="alert alert-danger">
+                        A Valid Code is required
+                    </div>
+                    <div *ngIf="errMsg.code"
+                            class="alert alert-danger">
+                        {{errMsg.code}}
+                    </div>
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input
+                            class="form-control"
+                            id="first_name"
+                            required
+                            [(ngModel)]="promotion.first_name"
+                            name="first_name"
+                            #first_name="ngModel"
+                        />
+                    </div>
+                    <div [hidden]="first_name.valid || first_name.pristine"
+                            class="alert alert-danger">
+                        First Name is required
+                    </div>
+                    <div *ngIf="errMsg.first_name"
+                         class="alert alert-danger">
+                        {{errMsg.first_name}}
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="last_name"
+                            required
+                            [(ngModel)]="promotion.last_name"
+                            name="last_name"
+                            #last_name="ngModel"
+                        />
+                    </div>
+                    <div [hidden]="last_name.valid || last_name.pristine"
+                            class="alert alert-danger">
+                        Last Name is required
+                    </div>
+                    <div *ngIf="errMsg.last_name"
+                         class="alert alert-danger">
+                        {{errMsg.last_name}}
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            required
+                            [(ngModel)]="promotion.email"
+                            name="email"
+                            #email="ngModel"
+                        />
+                    </div>
+                    <div [hidden]="email.valid || email.pristine"
+                            class="alert alert-danger">
+                        A valid Email is required
+                    </div>
+                    <div *ngIf="errMsg.email"
+                            class="alert alert-danger">
+                        {{errMsg.email}}
+                    </div>
+                    <button (click)="savePromotion()" type="submit" class="btn btn-success" [disabled]="!promotionForm.form.valid">Submit</button>
+                </form>
+            </div>
+            <div *ngIf="submitted">
+                <h4>{{this.message}}</h4>
+                <button class="btn btn-success" (click)="goBack()">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
